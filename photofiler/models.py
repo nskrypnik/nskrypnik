@@ -6,7 +6,11 @@ Simple application for photos storeing
 
 '''
 from django.db import models
-from PIL import Image
+try:
+    import Image
+except ImportError:    
+    from PIL import Image
+
 from django.db.models.signals import post_save, pre_delete
 from django.conf import settings
 
