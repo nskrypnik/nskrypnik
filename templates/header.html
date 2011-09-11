@@ -1,0 +1,39 @@
+  
+    <link href={{MEDIA_URL}}/css/styles.css rel="stylesheet" type="text/css">
+    <link href={{MEDIA_URL}}/css/slideshow.css rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{{MEDIA_URL}}/js/base.js"></script>
+    <script type="text/javascript" src="{{MEDIA_URL}}/js/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="{{MEDIA_URL}}/js/jquery.aslideshow.min.js"></script>
+    <script type="text/javascript" >
+    </script>
+    <script type="text/javascript" >
+      function authInfo(response) {
+        if (response.session) {
+          next = window.location;
+          window.location = '/login/?mid=' + response.session.mid + '&next=' + next;
+        } else {
+          alert('not auth');
+        }
+      }
+  </script>
+  
+  </head>
+  
+  <body>
+  
+    <div id="head">
+
+      <div id="head-wrapper">
+        <div id="page_title"> 
+                <h1>{% block page_title %}Блог про Python, Gevent и все-все-все{% endblock %}</h1>
+        </div> 
+        <div id="menu">
+          <div>
+            <a href="/" onclick="">Главная</a>&nbsp;&nbsp;
+            <a href="/" onclick="">Меню1</a>&nbsp;&nbsp;
+            <a href="/" onclick="">Меню2</a>&nbsp;&nbsp;
+
+          </div>
+        </div>
+      </div>
+  </div>

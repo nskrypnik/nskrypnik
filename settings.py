@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Django settings for mafia10 project.
 
 #import os
@@ -35,6 +36,8 @@ USE_L10N = True
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/site_media'
 
+STATIC_URL = MEDIA_URL
+
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
@@ -57,7 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
-ROOT_URLCONF = 'mafia10.urls'
+ROOT_URLCONF = 'urls'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -74,7 +77,7 @@ INSTALLED_APPS = (
     'tagging',
     'markdown',
     'slideshow',
-    'mafia',
+    'photofiler',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
@@ -83,7 +86,16 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
 "django.core.context_processors.media",
 "django.contrib.messages.context_processors.messages",
 "django.core.context_processors.request",
-"mafia.context_processors.vkontakte",
-"mafia.context_processors.auth",
+#"mafia.context_processors.vkontakte",
+#"mafia.context_processors.auth",
 )
+
+TINYMCE_JS_URL = '%s/tiny_mce/tiny_mce_src.js' % MEDIA_URL
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+}
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = False
+TINYMCE_FILEBROWSER = True
 

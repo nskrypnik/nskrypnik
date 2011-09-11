@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    {% block title %}
+    <title>{{title}}</title>
+    {% endblock %}
+{% include 'header.html' %}
+  
+  <div id="content_wrapper">  
+      <TABLE id="table" align="center">
+        <TR valign="top">
+          
+          
+          <TD id="cell">
+            <div id="content">
+              
+              <div id="content_head">
+              {% block content-head %}
+                
+                <div style="clear: both"></div>
+                </div>
+              
+              {% endblock %}  
+              {% block content %}
+                
+                
+              {% endblock %}
+            </div>
+          </TD>
+          <TD class="right">
+          <div id="rightside">
+            <div id="extramenu">
+            {% block extramenu %}
+            {% endblock %}
+            </div> 
+          </div>
+          </TD>
+        </TR>
+      </TABLE>
+  </div> 
+  
+{% include 'footer.html' %}

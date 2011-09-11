@@ -42,6 +42,7 @@ class EntryAdmin(admin.ModelAdmin):
 	# *** Admin list display ***
 	# http://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display
 	list_display = ('title', 'author', 'pub_date', 'colored_status')
+	
 	def colored_status(self, modelEntry):
 		status_str = modelEntry.get_status_display()	#http://docs.djangoproject.com/en/dev/ref/models/instances/#django.db.models.Model.get_FOO_display
 		color_str = "Black"
@@ -67,9 +68,6 @@ class EntryAdmin(admin.ModelAdmin):
 		img.save(obj.postimage.path.replace('blogimages', 'blogimages/small'), "PNG")
 		img.thumbnail((70, 70), Image.ANTIALIAS)
 		img.save(obj.postimage.path.replace('blogimages', 'blogimages/thumb'), "PNG")
-		
-		
-		
  
  
 admin.site.register(Category, CategoryAdmin) 

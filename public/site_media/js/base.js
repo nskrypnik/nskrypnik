@@ -22,7 +22,7 @@ function getViewPortHeight(){
 
 function adjustFooterPos()
 { 
-  var min_height = getViewPortHeight() - 254;
+  var min_height = getViewPortHeight() - 150;
   $('#table').css({'height': min_height + 'px'});
 }
 
