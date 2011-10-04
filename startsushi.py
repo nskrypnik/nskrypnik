@@ -11,5 +11,17 @@ import os
 os.environ['SUSHI_SETTINGS_MODULE'] = 'settings'
 
 from sushi.core import run_server
+from sushi import settings
 
-run_server('127.0.0.1')
+HOST = "0.0.0.0" # default localhost
+PORT = "8080"
+
+if hasattr(settings, 'SUSHI_HOST'):
+    HOST = settings.SUSHI_HOST
+
+if hasattr(settings, 'SUSHI_PORT'):
+    PORT = settings.SUSHI_PORT
+
+PORT = int(PORT)
+
+run_server(HOST, PORT)
