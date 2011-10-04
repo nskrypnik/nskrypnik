@@ -1,4 +1,4 @@
-  
+{% load i18n %} 
     <link href={{MEDIA_URL}}/css/styles.css rel="stylesheet" type="text/css">
     <link href={{MEDIA_URL}}/css/slideshow.css rel="stylesheet" type="text/css">
     <script type="text/javascript" src="{{MEDIA_URL}}/js/base.js"></script>
@@ -24,8 +24,14 @@
     <div id="head">
 
       <div id="head-wrapper">
-        <div id="page_title"> 
-                <h1>{% block page_title %}Блог про Python, Gevent и все-все-все{% endblock %}</h1>
+        <div id="page_title">
+          <img height="130" id="header_img" src="{{MEDIA_URL}}images/me.jpg" />
+          <div class="page_title_wrapper">
+            <span class="header_title">{% trans "Блог имени меня" %}</span>
+            <h1>{% block page_title %}
+              {% trans "про Python, WEB и все-все-все"%}{% endblock %}
+            </h1>
+          </div>
         </div> 
         <div id="menu">
           <div>
@@ -36,4 +42,6 @@
           </div>
         </div>
       </div>
-  </div>
+    </div>
+
+    <hr>
