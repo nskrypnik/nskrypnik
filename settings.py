@@ -98,7 +98,8 @@ TINYMCE_SPELLCHECKER = True
 TINYMCE_COMPRESSOR = False
 TINYMCE_FILEBROWSER = True
 
+
 try:
-    from local_setting import *
+    from local_settings import *
 except ImportError:
     print "Sushi application warning: local_settings does not exist"
