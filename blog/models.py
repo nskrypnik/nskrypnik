@@ -4,6 +4,19 @@ import datetime
 from django.contrib.auth.models import User
 from tagging.fields import TagField
 from markdown import markdown
+from django.conf import settings
+import os
+try:
+    import Image
+except ImportError:
+    from PIL import Image
+
+IMAGE_TYPE = {
+        '.jpg': "JPEG",
+        '.jpeg': "JPEG",
+        '.png': "PNG",
+        '.gif': "GIF"
+        }
 
 class Category(models.Model):
     title = models.CharField(max_length=250, verbose_name=u'Название',
@@ -79,16 +92,36 @@ class Entry(models.Model):
  
     def get_absolute_url(self):		# link "see on site" will be available in admin site
         return "/blog/%s/%s/" % (self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
-	
+
     def small_img_url(self):
+        small_path = self.postimage.path.replace('blogimages', 'blogimages/small')
+        if not os.path.exists(small_path):
+            base_name, ext = os.path.splitext(self.postimage.name)
+            img = Image.open(self.postimage.path)
+            img.thumbnail((400, 400), Image.ANTIALIAS)
+            try:
+                img.save(small_path, IMAGE_TYPE[ext])
+            except IOError:
+                os.mkdir(os.path.join(settings.MEDIA_ROOT, 'blogimages', 'small'))
+                img.save(small_path, IMAGE_TYPE[ext])
         return self.postimage.__str__().replace('blogimages', 'blogimages/small')
-	
+
     def thumb_img_url(self):
+        thumb_path = self.postimage.path.replace('blogimages', 'blogimages/thumb')
+        if not os.path.exists(thumb_path):
+            base_name, ext = os.path.splitext(self.postimage.name)
+            img = Image.open(self.postimage.path)
+            img.thumbnail((150, 150), Image.ANTIALIAS)
+            try:
+                img.save(thumb_path, IMAGE_TYPE[ext])
+            except IOError:
+                os.mkdir(os.path.join(settings.MEDIA_ROOT, 'blogimages', 'thumb'))
+                img.save(thumb_path, IMAGE_TYPE[ext])
         return self.postimage.__str__().replace('blogimages', 'blogimages/thumb')
-	
+    
+
     class Admin:
         js = (
                 'site_media/tiny_mce/tiny_mce.js',
-                #'/appmedia/admin/js/textareas.js',
             )
 

@@ -251,3 +251,9 @@ img.mafia{
     border: 2px solid #7B4C2C;
     padding: 4px;
 }
+
+#postimage{
+float: left;
+margin-right: 10px;
+
+}
