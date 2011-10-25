@@ -32,16 +32,28 @@
               {% trans "about Python, Web and everything"%}{% endblock %}
             </h1>
           </div>
-        </div> 
+        </div>
+          <div id="right_head_block">
+            <div>
+              <a href="javascript: void(0)">En</a> | <a href="javascript: void(0)">Ru</a>
+            </div>
+            <div>
+              {% if request.user.is_authenticated %}
+              <a href="/admin/logout">Logout</a>
+              {% else %}
+              <a href="/admin">Login</a>
+              {% endif %}
+            </div>
+          </div>
         </div>
       </div>
       
    <div id="menu">
       <div id="menu-wrapper">
-            <a href="/" onclick="">Home</a>&nbsp;&nbsp;&nbsp;
-            <a href="/" onclick="">AboutMe</a>&nbsp;&nbsp;&nbsp;
-            <a href="/" onclick="">Skills&Experiance</a>&nbsp;&nbsp;&nbsp;
-            <a href="/" onclick="">Blog</a>&nbsp;&nbsp;&nbsp;
+            <a href="/blog/" onclick="">Home</a>&nbsp;&nbsp;&nbsp;
+            <a href="/about" onclick="">AboutMe</a>&nbsp;&nbsp;&nbsp;
+            <a href="/experience" onclick="">Skills&Experiance</a>&nbsp;&nbsp;&nbsp;
+            {#<a href="/" onclick="">Blog</a>&nbsp;&nbsp;&nbsp;#}
             <a href="/" onclick="">NoTech</a>&nbsp;&nbsp;&nbsp;
             <a href="/" onclick="">Projects&Apps</a>&nbsp;&nbsp;&nbsp;
             <a href="/" onclick="">ContactMe</a>&nbsp;&nbsp;&nbsp;

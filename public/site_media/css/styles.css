@@ -31,6 +31,8 @@ box-shadow: 0 0 10px #25424F;
 
 #page_title{
   height: 120px;
+  float: left;
+  width: 700px;
 }
 
 .page_title_wrapper{
@@ -290,4 +292,8 @@ height: 100%;
 }
 
 .blog_item{
+}
+
+#right_head_block{
+  float: right;
 }
