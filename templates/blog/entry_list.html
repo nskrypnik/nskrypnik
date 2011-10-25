@@ -1,6 +1,7 @@
 {% for entry in entry_list.object_list %}
+    <div clsass="blog_item">
       {% if entry.postimage %}
-					<div id="postimage">
+					<div class="postimage">
 						<a href="{{ entry.get_absolute_url }}">
 							<img src="/site_media/{{entry.thumb_img_url}}" alt="{{entry.title}}" border="0" />
 						</a>
@@ -17,8 +18,8 @@
 						{{ entry.body_html|truncatewords_html:"50"|safe }}
 					{% endif %}
 				</div>
-				
-				<div class="divider"></div>
+				</div>
+				<div class="divider" style="clear: both"></div>
 	{% endfor %}
 	
 <div class="pagination" align="right">

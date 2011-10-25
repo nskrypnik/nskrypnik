@@ -10,18 +10,27 @@ font-size: 15px;
 #head{
 width:100%;
 height:150px;
-margin-top: 10px;
+padding-top: 10px;
+background-color: #B0C5CE;
 }
 
 #header_img{
 float: left;
 margin-right: 10px;
+-moz-box-shadow: 0 0 10px #25424F;
+-webkit-box-shadow: 0 0 10px #25424F;
+box-shadow: 0 0 10px #25424F;
 }
 
 .header_title{
   font-size: 39px;
-  color: #611349;
+  color: #25424F;
   font-weight: bold;
+}
+
+
+#page_title{
+  height: 120px;
 }
 
 .page_title_wrapper{
@@ -32,11 +41,27 @@ margin-right: 10px;
 }
 
 #menu{
-text-align: right;
+background-color: #000;
+height: 28px;
+border-top: 1px solid white;
+padding-top: 7px;
+margin-bottom: 20px;
+-moz-box-shadow: 0 7px 7px #888;
+-webkit-box-shadow: 0 7px 7px #888;
+box-shadow: 0 7px 7px #888;
+}
+
+#menu-wrapper{
+text-align: left;
+margin: 0 auto;
+width: 970px;
+font-size: 15px;
 }
 
 #menu a{  
   text-decoration: none;   
+  color: white;
+  font-weight: bold;
 }
 
 #menu-wrapper{
@@ -89,8 +114,8 @@ font-size:25px;
 
 
 Table h2{
-font-size:25px;
-color:#392C1A;
+font-size:23px;
+color: #25424F;
 font-weight: bold;
 margin: 7px 0;
 }
@@ -114,7 +139,7 @@ width:100px;
 min-width:100px;
 }
 .right{
-border-left:#7B4C2C solid 2px;
+border-left:#25424F solid 2px;
 width:200px;
 min-width:200px;
 }
@@ -124,8 +149,8 @@ min-width:200px;
 }
 
 .publish_date{
-    color: #611349;
-    font-weight: bold;
+    color: #2A3B43;
+    font-size: 12px;
 }
 
 #rightside div{
@@ -148,7 +173,7 @@ margin-right: auto;
 }
 
 #content a{
-    color: #392C1A;
+    color: #003366;
     text-decoration: none;
 }
 
@@ -188,7 +213,7 @@ width:100%;
 #extramenu h3{
   font-weight: normal;
   margin: 5px 0;
-  color: #392C1A;  
+  color: #25424F;
 }
 
 #extramenu a{
@@ -203,7 +228,7 @@ width:100%;
 padding-right: 5px;
 }
 
-.divider{ border-bottom: 1px solid rgb(123,76,44);}
+.divider{ border-bottom: 1px solid #25424F;}
 
 #authorization{
   font-size: 30px;
@@ -252,8 +277,17 @@ img.mafia{
     padding: 4px;
 }
 
-#postimage{
+.postimage{
 float: left;
 margin-right: 10px;
+height: 100%;
 
+}
+
+.blog_content{
+
+  padding-left: 165px;
+}
+
+.blog_item{
 }
