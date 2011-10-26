@@ -100,10 +100,10 @@ class Entry(models.Model):
             img = Image.open(self.postimage.path)
             img.thumbnail((400, 400), Image.ANTIALIAS)
             try:
-                img.save(small_path, IMAGE_TYPE[ext])
+                img.save(small_path, IMAGE_TYPE[ext.lower()])
             except IOError:
                 os.mkdir(os.path.join(settings.MEDIA_ROOT, 'blogimages', 'small'))
-                img.save(small_path, IMAGE_TYPE[ext])
+                img.save(small_path, IMAGE_TYPE[ext.lower()])
         return self.postimage.__str__().replace('blogimages', 'blogimages/small')
 
     def thumb_img_url(self):
@@ -113,10 +113,10 @@ class Entry(models.Model):
             img = Image.open(self.postimage.path)
             img.thumbnail((150, 150), Image.ANTIALIAS)
             try:
-                img.save(thumb_path, IMAGE_TYPE[ext])
+                img.save(thumb_path, IMAGE_TYPE[ext.lower()])
             except IOError:
                 os.mkdir(os.path.join(settings.MEDIA_ROOT, 'blogimages', 'thumb'))
-                img.save(thumb_path, IMAGE_TYPE[ext])
+                img.save(thumb_path, IMAGE_TYPE[ext.lower()])
         return self.postimage.__str__().replace('blogimages', 'blogimages/thumb')
     
 

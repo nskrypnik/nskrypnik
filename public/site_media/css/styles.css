@@ -297,3 +297,8 @@ height: 100%;
 #right_head_block{
   float: right;
 }
+
+form.rui-in-edit textarea.field {
+      margin-bottom: 0.5em;
+      width: 400px !important; 
+}

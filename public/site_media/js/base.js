@@ -29,3 +29,16 @@ function adjustFooterPos()
 window.onresize = function(){
    adjustFooterPos();
 }
+
+window.onload = function(){
+
+}
+
+function editstatus(){
+
+}
+
+function get_page_csrf(){
+    csrf_token = $$('input[name=csrfmiddlewaretoken]')[0].getValue();
+    return csrf_token;
+}
