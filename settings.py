@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# Django settings for mafia10 project.
 
 #import os
 
@@ -35,12 +34,11 @@ USE_L10N = True
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/site_media/'
 
-STATIC_URL = MEDIA_URL
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -77,6 +75,7 @@ INSTALLED_APPS = (
     'markdown',
     'slideshow',
     'photofiler',
+    'status',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
@@ -85,6 +84,7 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
 "django.core.context_processors.media",
 "django.contrib.messages.context_processors.messages",
 "django.core.context_processors.request",
+"status.context_processors.status",
 #"mafia.context_processors.vkontakte",
 #"mafia.context_processors.auth",
 )

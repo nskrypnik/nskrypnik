@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     (r'^blog/', include('blog.urls')),
     #(r'^thankyou/$', direct_to_template, {'template': 'thankyou'}),
     (r'^test/$', 'views.Test'),
+    (r'^status/', include('status.urls')),
 )
 
 if settings.DEBUG:

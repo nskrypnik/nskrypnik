@@ -24,14 +24,20 @@
 
       <div id="head-wrapper">
         <div id="page_title">
-          <img height="130" id="header_img" src="{{MEDIA_URL}}images/me.jpg" />
+          <a href="/">
+            <img height="130" id="header_img" src="{{MEDIA_URL}}images/me.jpg" />
+          </a>
           <div class="page_title_wrapper">
             <span class="header_title">{% trans "Niko Skrypnik Blog" %}</span>
             <h1>{% block page_title %}
-              {% trans "about Python, Web and everything"%}{% endblock %}
+              {% trans "about Python, Web and everything..."%}{% endblock %}
             </h1>
             <div id="status_here">
-              <span id="editable_status" onclick="$(this).inEdit({type: 'textarea', Xhr: {params: {'csrfmiddlewaretoken': get_page_csrf()}}, method: 'post'});" >Click here to edit</span>
+              <span id="editable_status" 
+                {% if request.user.is_staff %}
+                onclick="$(this).inEdit({type: 'textarea', Xhr: {params: {'csrfmiddlewaretoken': get_page_csrf()}}, method: 'post', url: '/status/change/'});"
+                {% endif %}
+              >{% if status %}{{status.text}}{% else %}Click here to edit{% endif %}</span>
               {% csrf_token %}
             </div>
           </div>
